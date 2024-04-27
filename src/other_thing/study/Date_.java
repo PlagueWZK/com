@@ -1,4 +1,4 @@
-package other_thing.test;
+package other_thing.study;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;

@@ -1,6 +1,4 @@
-package other_thing.test;
-
-import java.util.Arrays;
+package other_thing.study;
 
 public class StringReversal {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package other_thing.test;
+package other_thing.study;
 
 public class StringClasses {
     public static void main(String[] args) {
