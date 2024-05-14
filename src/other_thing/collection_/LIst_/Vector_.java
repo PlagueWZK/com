@@ -1,4 +1,4 @@
-package other_thing.collection_;
+package other_thing.collection_.LIst_;
 
 public class Vector_ {
 

@@ -1,6 +1,6 @@
-package other_thing.collection_;
+package other_thing.collection_.LIst_;
 
-public class LinkedList {
+public class LinkedList_ {
     public static void main(String[] args) {
         Node tom = new Node(1);
         Node jan = new Node(2);
@@ -15,6 +15,11 @@ public class LinkedList {
             System.out.println(first.data);
             first = first.next;
         }
+        while (last != null) {
+            System.out.println(last.data);
+            last = last.pre;
+        }
+
     }
 }
 
