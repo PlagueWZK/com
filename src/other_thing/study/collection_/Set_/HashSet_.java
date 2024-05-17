@@ -1,4 +1,4 @@
-package other_thing.collection_.Set_;
+package other_thing.study.collection_.Set_;
 
 import java.util.HashSet;
 
