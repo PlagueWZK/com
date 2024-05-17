@@ -1,4 +1,4 @@
-package other_thing.collection_.LIst_;
+package other_thing.study.collection_.LIst_;
 
 public class LinkedList_ {
     public static void main(String[] args) {
