@@ -2,7 +2,7 @@ package wzk.newMath;
 
 
 public class Fraction {
-    public final double approximateValue;
+    public final double approximateValue;//近似值
     public int numerator;//分子
     public int denominator;//分母
 
@@ -10,24 +10,27 @@ public class Fraction {
         if (denominator == 0) throw new IllegalArgumentException("分母不能为0");
         this.numerator = numerator;
         this.denominator = denominator;
+        reduction();
         approximateValue = (double) numerator / denominator;
     }
+    public Fraction(double numerator, double denominator) {
+        if (denominator == 0) throw new IllegalArgumentException("分母不能为0");
+        while (!(mathUtil.isInteger(numerator) && mathUtil.isInteger(denominator))) {
+            numerator *= 10;
+            denominator *= 10;
+        }
+        this.numerator = (int)numerator;
+        this.denominator = (int)denominator;
+        reduction();
+        approximateValue = numerator / denominator;
+    }
 
-    public static Fraction fractionFormatter(double dividend, double divisor) {
+    public static String fractionFormatter(double dividend, double divisor) {
         while (!(mathUtil.isInteger(dividend) && mathUtil.isInteger(divisor))) {
             dividend *= 10;
             divisor *= 10;
         }
-        return new Fraction((int) dividend, (int) divisor).reduction();
-    }
-    public static String fractionFormat(double dividend, double divisor) {
-        double result = dividend / divisor;
-        if (mathUtil.isInteger(result)) return String.valueOf((int)(result));
-        return fractionFormatter(dividend,divisor).toString();
-    }
-
-    public static boolean isExactDivision(double a, double b) {
-        return a % b == 0;
+        return (int)dividend + "/" + (int)divisor;
     }
 
     public Fraction add(Fraction other) {
@@ -47,18 +50,18 @@ public class Fraction {
         return new Fraction(numerator * other.denominator, denominator * other.numerator);
     }
     public Fraction add(double other) {
-        return new Fraction(numerator+=other * denominator,denominator);
+        return new Fraction(numerator+= (int) (other * denominator),denominator);
     }
 
     public Fraction subtraction(double other) {
-        return new Fraction(numerator-=other * denominator,denominator);
+        return new Fraction(numerator-= (int) (other * denominator),denominator);
     }
 
     public Fraction multiplication(double other) {
-        return fractionFormatter(numerator * other, denominator);
+        return  new Fraction(numerator * other, denominator);
     }
     public Fraction Division(double other) {
-        return fractionFormatter(numerator / other, denominator);
+        return new Fraction(numerator / other, denominator);
     }
     public Fraction reduction() {
         int gcd = mathUtil.calGreatestCommonDivisor(denominator, numerator);
@@ -69,7 +72,7 @@ public class Fraction {
 
     @Override
     public String toString() {
-        if (mathUtil.isInteger(approximateValue)) return String.valueOf((int)approximateValue);
-        return numerator + "/" + denominator;
+            if (mathUtil.isInteger(approximateValue)) return String.valueOf((int)(approximateValue));
+            return fractionFormatter(numerator,denominator);
     }
 }

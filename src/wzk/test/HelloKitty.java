@@ -1,6 +1,7 @@
 package wzk.test;
 
 import java.awt.*;
+import java.io.IOException;
 import javax.swing.*;
 
 public class HelloKitty extends JPanel {

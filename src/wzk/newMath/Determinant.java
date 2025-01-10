@@ -10,7 +10,7 @@ public class Determinant {
     public Determinant(double[][] double_det) {
         this.double_det = double_det;
         this.result = calResult(double_det);
-        this.fraction_result = Fraction.fractionFormat(result,1) ;
+        this.fraction_result = Fraction.fractionFormatter(result,1) ;
         this.N = double_det.length;
     }
 
@@ -24,7 +24,7 @@ public class Determinant {
             }
         }
         this.result = calResult(double_det);
-        this.fraction_result = Fraction.fractionFormat(result,1) ;
+        this.fraction_result = Fraction.fractionFormatter(result,1) ;
     }
 
     public static double calResult(double[][] det) {

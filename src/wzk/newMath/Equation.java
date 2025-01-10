@@ -36,7 +36,7 @@ public class Equation {
         }
         this.root = new String[countOfUnknowns];
         for (int i = 0; i < countOfUnknowns; i++) {
-            this.root[i] = Fraction.fractionFormat(determinantForm[i + 1].getResult(),determinantForm[0].getResult());
+            this.root[i] = Fraction.fractionFormatter(determinantForm[i + 1].getResult(),determinantForm[0].getResult());
         }
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < countOfUnknowns; i++) {
